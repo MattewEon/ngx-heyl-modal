@@ -1,6 +1,6 @@
 @mixin modalColor($header_background, $body_background, $footer_background, $text_color) {
 	modal > div.modal > div.modal-dialog {
-		background: $body_background;
+		background: $body_background !important;
 
 		> div {
 			&.modal-header {

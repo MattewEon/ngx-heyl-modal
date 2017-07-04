@@ -24,7 +24,6 @@ modal {
 			left: 50%;
 			width: 90%;
 			max-height: 95%;
-			background: #fff;
 			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
 			border: 1px solid #737373;
 			border-radius: 4px;
@@ -37,7 +36,6 @@ modal {
 					padding: 15px 45px;
 					border-bottom: 1px solid #737373;
 					font-size: 22px;
-					background: $color_header;
 				}
 
 				&.modal-body {
@@ -46,7 +44,6 @@ modal {
 				}
 
 				&.modal-footer {
-					background: darken($color_footer, 10%);
 					padding: 6px 30px;
 					border-top: 1px solid #737373;
 					font-size: 22px;
@@ -59,9 +56,6 @@ modal {
 						border-radius: 3px;
 						font-size: 15px;
 						line-height: 16px;
-						background: darken($color_header, 10%);
-						color: #ffffff;
-						text-shadow: 1px 1px $color_footer;
 					}
 				}
 			}
@@ -100,6 +94,27 @@ modal {
 				transform: translateY(-50%) translateX(-50%);
 			}
 
+		}
+	}
+
+	modal div.modal-dialog {
+		background: #fff;
+
+		div {
+			&.modal-header {
+				background: #fff;
+				color: #000;
+			}
+
+			&.modal-footer {
+				background: darken(#fff, 10%);
+
+				> button {
+					background: darken(#fff, 10%);
+					color: #000;
+					text-shadow: 1px 1px #000;
+				}
+			}
 		}
 	}
 }
