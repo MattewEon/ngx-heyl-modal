@@ -13,8 +13,8 @@ export class ModalService {
 	public configModal: Subject<any> = new Subject<any>();
 	public $configModal: any = this.configModal.asObservable();
 
-	public openModal(configuration: ModalConfig) {
+	public openModal(configuration: ModalConfig, modalBodyComponent: any) {
 		this.configModal.next(configuration);
-		this.showModal.next(undefined);
+		this.showModal.next(modalBodyComponent);
 	}
 }
