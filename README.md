@@ -87,5 +87,5 @@ This package is designed to define the modal only on the `app.component` templat
    ```scss
    @import "../[ .... ]../node_modules/ngx-heyl-modal/lib/modal.mixin";
    // modalColor(header_background, body_background, footer_background, text_color);
-   @include modalColor($orange, #2b3135, $blue, #fff);
+   @include modalColor(#ed5400, #2b3135, #005590, #fff);
    ```
