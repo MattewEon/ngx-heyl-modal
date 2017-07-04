@@ -13,7 +13,7 @@ This package is designed to define the modal only on the `app.component` templat
 
    Open your `app.module.ts` file and import the module like this :
    
-   ```
+   ```typescript
    import { ModalModule } from "ngx-heyl-modal";
    @NgModule({
       imports: [ 
@@ -27,7 +27,7 @@ This package is designed to define the modal only on the `app.component` templat
 3. Use `<modal>` component and `ModalService` service :
 
    Open your `app.component.html` and use the component
-   ```
+   ```html
    <div>App component html here</div>
    <div>Another content in your app component</div>
    <modal></modal>
@@ -35,7 +35,7 @@ This package is designed to define the modal only on the `app.component` templat
    And use the service to open the modal dialog and set the configuration / content. You can use it in
     a sharedService used all along your app :
    
-   ```
+   ```typescript
    import {ModalService} from "ngx-heyl-modal/lib/modal.service";
    import {ModalConfig, ModalFade} from "ngx-heyl-modal/lib/modalConfig";
 
@@ -63,7 +63,7 @@ This package is designed to define the modal only on the `app.component` templat
    ```
    
    Then, you'll have to declare your modal bodies components in the NgModule like this :
-      ```
+      ```typescript
       import { ModalModule } from "ngx-heyl-modal";
       @NgModule({
          imports: [ 
