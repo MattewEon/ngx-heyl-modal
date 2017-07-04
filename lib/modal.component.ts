@@ -1,11 +1,16 @@
-import {Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef} from "@angular/core";
+import {
+	Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef,
+	ViewEncapsulation
+} from "@angular/core";
 import {ModalService} from "./modal.service";
 import {ModalConfig, ModalFade} from "./modalConfig";
 import "rxjs/add/operator/takeWhile";
 
 @Component({
 	selector: "modal",
-	templateUrl: "./modal.component.html"
+	templateUrl: "modal.component.html",
+	styleUrls: [ "style.css" ],
+	encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnDestroy {
 	public visible = false;

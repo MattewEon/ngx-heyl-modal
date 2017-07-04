@@ -22,7 +22,6 @@ This package is designed to define the modal only on the `app.component` templat
       ]
    })
    ```
-   
  
 3. Use `<modal>` component and `ModalService` service :
 
@@ -80,3 +79,13 @@ This package is designed to define the modal only on the `app.component` templat
          ]
       })
       ```
+      
+4. Styling modal component
+
+   If you want to change background colors and text-color, you can do it using scss !
+   
+   ```scss
+   @import "../[ .... ]../node_modules/ngx-heyl-modal/lib/modal.mixin";
+   // modalColor(header_background, body_background, footer_background, text_color);
+   @include modalColor($orange, #2b3135, $blue, #fff);
+   ```
