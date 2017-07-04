@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
-import {ModalConfig} from "./modalConfig";
+import {ModalConfig} from "./modal.config";
 
 @Injectable()
 export class ModalService {

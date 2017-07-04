@@ -36,7 +36,7 @@ This package is designed to define the modal only on the `app.component` templat
    
    ```typescript
    import {ModalService} from "ngx-heyl-modal/lib/modal.service";
-   import {ModalConfig, ModalFade} from "ngx-heyl-modal/lib/modalConfig";
+   import {ModalConfig, ModalFade} from "ngx-heyl-modal/lib/modal.config";
 
    export var modalOneConfig: ModalConfig =  new ModalConfig().setFade(ModalFade.RIGHT).setSize("70%").setTitle("Modal One");
    export var modalTwoConfig: ModalConfig =  new ModalConfig().setFade(ModalFade.LEFT).setSize("50%").setTitle("Modal Two");

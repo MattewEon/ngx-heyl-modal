@@ -8,7 +8,7 @@ import {
 	ViewEncapsulation
 } from "@angular/core";
 import {ModalService} from "./modal.service";
-import {ModalConfig, ModalFade} from "./modalConfig";
+import {ModalConfig, ModalFade} from "./modal.config";
 import "rxjs/add/operator/takeWhile";
 
 @Component({
