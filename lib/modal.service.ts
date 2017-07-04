@@ -7,9 +7,8 @@ export class ModalService {
 	public showModal: Subject<any> = new Subject<any>();
 	public $showModal: any = this.showModal.asObservable();
 
-	//TODO : hide
-	public closeModal: Subject<any> = new Subject<any>();
-	public $closeModal: any = this.closeModal.asObservable();
+	public hideModal: Subject<any> = new Subject<any>();
+	public $hideModal: any = this.hideModal.asObservable();
 
 	public configModal: Subject<any> = new Subject<any>();
 	public $configModal: any = this.configModal.asObservable();
@@ -17,9 +16,5 @@ export class ModalService {
 	public openModal(configuration: ModalConfig) {
 		this.configModal.next(configuration);
 		this.showModal.next(undefined);
-	}
-
-	constructor() {
-		console.log(Date.now());
 	}
 }

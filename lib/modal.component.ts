@@ -1,5 +1,10 @@
 import {
-	Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef,
+	Component,
+	ComponentFactoryResolver,
+	ComponentRef,
+	OnDestroy,
+	ViewChild,
+	ViewContainerRef,
 	ViewEncapsulation
 } from "@angular/core";
 import {ModalService} from "./modal.service";
@@ -9,7 +14,7 @@ import "rxjs/add/operator/takeWhile";
 @Component({
 	selector: "modal",
 	templateUrl: "modal.component.html",
-	styleUrls: [ "style.css" ],
+	styleUrls: ["style.css"],
 	encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnDestroy {
@@ -34,7 +39,7 @@ export class ModalComponent implements OnDestroy {
 			}
 		});
 
-		this.modalService.closeModal.takeWhile(() => this.alive).subscribe((callback) => {
+		this.modalService.hideModal.takeWhile(() => this.alive).subscribe((callback) => {
 			this.hide(callback);
 		});
 
@@ -56,7 +61,9 @@ export class ModalComponent implements OnDestroy {
 
 	public show(): void {
 		this.visible = true;
-		setTimeout(() => { this.visibleAnimate = true});
+		setTimeout(() => {
+			this.visibleAnimate = true
+		});
 	}
 
 	public hide(callback = undefined): void {
