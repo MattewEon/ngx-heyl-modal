@@ -14,5 +14,18 @@
     "@angular/core": "^4.2.5",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.12"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattewEon/ngx-heyl-modal.git"
+  },
+  "keywords": [
+    "angular",
+    "modal"
+  ],
+  "bugs": {
+    "url": "https://github.com/MattewEon/ngx-heyl-modal/issues"
+  },
+  "homepage": "https://github.com/MattewEon/ngx-heyl-modal#readme"
 }

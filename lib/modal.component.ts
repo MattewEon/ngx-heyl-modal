@@ -1,11 +1,11 @@
 import {Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef} from "@angular/core";
 import {ModalService} from "./modal.service";
 import {ModalConfig, ModalFade} from "./modalConfig";
+import "rxjs/add/operator/takeWhile";
 
 @Component({
 	selector: "modal",
-	templateUrl: "./modal.component.html",
-	providers: [ ModalService ]
+	templateUrl: "./modal.component.html"
 })
 export class ModalComponent implements OnDestroy {
 	public visible = false;
@@ -21,7 +21,7 @@ export class ModalComponent implements OnDestroy {
 		this.cfg.setTitle("Modal title").setFade(ModalFade.BOTTOM).setSize("80%");
 		this.alive = true;
 
-		this.modalService.$showModal.takeWhile(() => this.alive).subscribe(type => {
+		this.modalService.showModal.takeWhile(() => this.alive).subscribe(type => {
 			if (this.visible) {
 				this.hide(() => this.createComponent(type));
 			} else {
@@ -29,11 +29,11 @@ export class ModalComponent implements OnDestroy {
 			}
 		});
 
-		this.modalService.$closeModal.takeWhile(() => this.alive).subscribe((callback) => {
+		this.modalService.closeModal.takeWhile(() => this.alive).subscribe((callback) => {
 			this.hide(callback);
 		});
 
-		this.modalService.$configModal.takeWhile(() => this.alive).subscribe(config => {
+		this.modalService.configModal.takeWhile(() => this.alive).subscribe(config => {
 			this.cfg.apply(config);
 		});
 	}
