@@ -45,18 +45,13 @@ This package is designed to define the modal only on the `app.component` templat
    export class SharedService {
    
       constructor(private modalService: ModalService) {}
-      
-      openModal(configuration: ModalConfig, component) {
-   	this.modalService.configModal.next(configuration);
-   	this.modalService.showModal.next(component);
-       }
-       
+             
       openModalOne() {
-           this.openModal(this.modalOneConfig, ModalBodyOneComponent)
+           this.modalService.openModal(this.modalOneConfig, ModalBodyOneComponent)
        }
 
       openModalTwo() {
-           this.openModal(this.modalTwoConfig, ModalBodyTwoComponent)
+           this.modalService.openModal(this.modalTwoConfig, ModalBodyTwoComponent)
        }
    }
    ```
