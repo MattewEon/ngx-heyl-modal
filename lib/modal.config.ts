@@ -10,6 +10,7 @@ export class ModalConfig {
 	fade: ModalFade = ModalFade.BOTTOM;
 	size: string = "70%";
 	closeButton: boolean = true;
+	deleteOnClose: boolean = false;
 
 	constructor() {
 	}
@@ -34,6 +35,10 @@ export class ModalConfig {
 	}
 	setCloseButton(closeButton: boolean): ModalConfig {
 		this.closeButton = closeButton;
+		return this;
+	}
+	setDeleteOnClose(deleteOnClose: boolean): ModalConfig {
+		this.deleteOnClose = deleteOnClose;
 		return this;
 	}
 }

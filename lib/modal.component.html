@@ -3,7 +3,7 @@
 	<div class="modal-dialog" [className]="cfg.fade + ' modal-dialog'" [ngClass]="{'in': visibleAnimate}" [ngStyle]="{'width' : cfg.size}">
 		<div class="modal-header"> {{ cfg.title }}</div>
 		<div class="modal-body">
-			<div #modalBody></div>
+			<div #modalBody> {{ text }} </div>
 		</div>
 		<div class="modal-footer">
 			<button *ngIf="cfg.closeButton" type="button" (click)="modal.hide()">Close</button>

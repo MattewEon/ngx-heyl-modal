@@ -53,6 +53,10 @@ This package is designed to define the modal only on the `app.component` templat
       openModalTwo() {
            this.modalService.openModal(this.modalTwoConfig, ModalBodyTwoComponent)
        }
+
+      openModalThree() {
+           this.modalService.openModal(this.modalTwoConfig, "Some text on the third modal")
+       }
    }
    ```
    

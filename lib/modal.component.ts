@@ -1,7 +1,7 @@
 import {
 	Component,
 	ComponentFactoryResolver,
-	ComponentRef,
+	ComponentRef, HostListener,
 	OnDestroy,
 	ViewChild,
 	ViewContainerRef,
@@ -18,68 +18,116 @@ import "rxjs/add/operator/takeWhile";
 	encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnDestroy {
-	public visible = false;
-	public visibleAnimate = false;
-	public cfg: ModalConfig = new ModalConfig();
+	visible: boolean = false;                         // True when visible
+	visibleAnimate: boolean = false;
+	alive: boolean = false;
+
+	public cfg: ModalConfig = new ModalConfig();    // Modal configuration
+	public text: string = "";                       // Modal text value
+
 
 	@ViewChild("modalBody", {read: ViewContainerRef}) modalBody;
 	cmp: ComponentRef<any>;
 
-	alive: boolean = false;
 
 	constructor(private modalService: ModalService, private cfr: ComponentFactoryResolver) {
-		this.cfg.setTitle("Modal title").setFade(ModalFade.BOTTOM).setSize("80%");
 		this.alive = true;
+		this.cfg.setTitle("Modal title").setFade(ModalFade.BOTTOM).setSize("80%");
 
-		this.modalService.showModal.takeWhile(() => this.alive).subscribe(type => {
-			if (this.visible) {
-				this.hide(() => this.createComponent(type));
-			} else {
-				this.createComponent(type);
-			}
-		});
-
-		this.modalService.hideModal.takeWhile(() => this.alive).subscribe((callback) => {
-			this.hide(callback);
-		});
-
-		this.modalService.configModal.takeWhile(() => this.alive).subscribe(config => {
+		// Update modal configuration
+		this.modalService.$configModal.takeWhile(() => this.alive).subscribe(config => {
 			this.cfg.apply(config);
 		});
+
+		// Show the modal window
+		this.modalService.$showModal.takeWhile(() => this.alive).subscribe(() => {
+			this.show();
+		});
+
+		// Create the component and show the window
+		this.modalService.$showModalWithComponent.takeWhile(() => this.alive).subscribe(component => {
+			let create: () => void = () => {
+				this.text = "";
+				this.createComponent(component);
+				this.show();
+			};
+
+			this.visible ? this.hide(create) : create();
+		});
+
+
+		// Set the text and show the window
+		this.modalService.$showModalWithText.takeWhile(() => this.alive).subscribe(text => {
+			console.log(this.text);
+			let create: () => void = () => {
+				this.text = text;
+				this.destroyComponent();
+				this.show();
+			};
+
+			this.visible ? this.hide(create) : create();
+		});
+
+		// Hide the modal and call the callback
+		this.modalService.$hideModal.takeWhile(() => this.alive).subscribe(callback => {
+			this.hide(callback);
+		});
 	}
 
-	ngOnDestroy() {
+	ngOnDestroy(): void {
 		this.alive = false;
+		this.destroyComponent();
 	}
 
-	private createComponent(type) {
+	// Destroy body component
+	private destroyComponent(): void {
 		if (this.cmp) this.cmp.destroy();
+	}
+
+	// Create body component
+	private createComponent(type): void {
+		this.destroyComponent();
 		let factory = this.cfr.resolveComponentFactory(type);
 		this.cmp = this.modalBody.createComponent(factory);
 		this.show();
 	}
 
+	// Show the modal
 	public show(): void {
+		if (this.visible) return;
+
 		this.visible = true;
 		setTimeout(() => {
 			this.visibleAnimate = true
+			// Angular won't update ngClass without setTimeout
 		});
 	}
 
-	public hide(callback = undefined): void {
+	// Hide the modal and call the callback
+	public hide(callback?): void {
 		if (!this.visible) return;
+
 		this.visibleAnimate = false;
 		setTimeout(() => {
 			this.visible = false;
-			this.cmp.destroy();
-			this.cmp = null;
+			if (this.cfg.deleteOnClose) {
+				this.destroyComponent();
+				this.text = "";
+			}
 			if (callback) callback();
 		}, 500);
 	}
 
+	// Hide on shadow click
 	public onContainerClicked(event: MouseEvent): void {
 		if ((<HTMLElement>event.target).classList.contains('modal')) {
 			this.hide();
 		}
+	}
+
+	// Hide on escape key pressed
+	@HostListener('document:keydown', ['$event'])
+	public onDocumentKeyDown(event: KeyboardEvent) {
+		if (event.key == "Escape") this.hide();
 	}
 }
