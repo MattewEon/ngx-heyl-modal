@@ -28,6 +28,7 @@ modal {
 			border: 1px solid #737373;
 			border-radius: 4px;
 			overflow: hidden;
+			background: #fff;
 
 			> div {
 				color: #fff;
@@ -36,6 +37,8 @@ modal {
 					padding: 15px 45px;
 					border-bottom: 1px solid #737373;
 					font-size: 22px;
+					background: #fff;
+					color: #000;
 				}
 
 				&.modal-body {
@@ -48,6 +51,7 @@ modal {
 					border-top: 1px solid #737373;
 					font-size: 22px;
 					text-align: right;
+					background: darken(#fff, 10%);
 
 					> button {
 						padding: 6px 12px;
@@ -56,6 +60,9 @@ modal {
 						border-radius: 3px;
 						font-size: 15px;
 						line-height: 16px;
+						background: darken(#fff, 10%);
+						color: #000;
+						text-shadow: 1px 1px #000;
 					}
 				}
 			}
@@ -94,27 +101,6 @@ modal {
 				transform: translateY(-50%) translateX(-50%);
 			}
 
-		}
-	}
-
-	modal div.modal-dialog {
-		background: #fff;
-
-		div {
-			&.modal-header {
-				background: #fff;
-				color: #000;
-			}
-
-			&.modal-footer {
-				background: darken(#fff, 10%);
-
-				> button {
-					background: darken(#fff, 10%);
-					color: #000;
-					text-shadow: 1px 1px #000;
-				}
-			}
 		}
 	}
 }
