@@ -58,7 +58,6 @@ export class ModalComponent implements OnDestroy {
 
 		// Set the text and show the window
 		this.modalService.$showModalWithText.takeWhile(() => this.alive).subscribe(text => {
-			console.log(this.text);
 			let create: () => void = () => {
 				this.text = text;
 				this.destroyComponent();
