@@ -14,7 +14,7 @@ import "rxjs/add/operator/takeWhile";
 @Component({
 	selector: "modal",
 	templateUrl: "modal.component.html",
-	styleUrls: ["style.css"],
+	styleUrls: ["css/style.css"],
 	encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnDestroy {
