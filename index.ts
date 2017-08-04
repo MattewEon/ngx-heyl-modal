@@ -1,9 +1,8 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {ModalComponent} from "./lib/modal.component";
-import {ModalService} from "./lib/modal.service";
+import {ModalComponent} from "./lib/components/modal.component";
 
-export * from "./lib/modal.service";
+export * from "./lib/components/modal.component";
 export * from "./lib/modal.config";
 
 @NgModule({
@@ -12,9 +11,6 @@ export * from "./lib/modal.config";
 	],
 	imports: [
 		CommonModule
-	],
-	providers: [
-		ModalService
 	],
 	exports: [
 		ModalComponent

@@ -2,6 +2,24 @@
 
 This package allows you to use a modal window in AngularX (2+) projects.
 This package is designed to define the modal only on the `app.component` template and use a component to define all bodies you'll need.
+#### Please don't hesitate to ask for new features or report a bug on Github! Thanks
+## Small wiki
+
+Inputs available :
+
+| Inputs | Default value | Description |
+| -------| --------------| ----------- |
+| `size` | `"70%"` | Width of the modal |
+| `fade` | `ModalFade.BOTTOM` | Position from where the modal fade : `"top"` / `"bottom"` / `"left"` / `"right"` |
+| `closeButton` | `true` | Display or not the &times; button in the header |
+
+ModalComponent's functions available :
+
+| Inputs | Description |
+| -------| --------------|
+| `show([callback])` | Show the modal, and call the callback if not undefined |
+| `hide([callback])` | Hide the modal, and call the callback if not undefined |
+
 
 ## Installation
 
@@ -23,61 +41,19 @@ This package is designed to define the modal only on the `app.component` templat
    })
    ```
  
-3. Use `<modal>` component and `ModalService` service :
+3. Use `<modal>` component :
 
-   Open your `app.component.html` and use the component
+   Declare a modal in an html file
    ```html
-   <div>App component html here</div>
-   <div>Another content in your app component</div>
-   <modal></modal>
+   <modal #modal fade="top" size="50%">
+      <div class="modal-header">This is my header</div>
+      <div class="modal-body">Here you can type some long text and html</div>
+      <div class="modal-footer">
+         <button (click)="modal.hide()">Close</button>
+      </div>
+   </modal>
    ```
-   And use the service to open the modal dialog and set the configuration / content. You can use it in
-    a sharedService used all along your app :
-   
-   ```typescript
-   import {ModalService, ModalConfig, ModalFade} from "ngx-heyl-modal";
-
-   export var modalOneConfig: ModalConfig =  new ModalConfig().setFade(ModalFade.RIGHT).setSize("70%").setTitle("Modal One");
-   export var modalTwoConfig: ModalConfig =  new ModalConfig().setFade(ModalFade.LEFT).setSize("50%").setTitle("Modal Two");
-
-   @Injectable()
-   export class SharedService {
-   
-      constructor(private modalService: ModalService) {}
-             
-      openModalOne() {
-           this.modalService.openModal(this.modalOneConfig, ModalBodyOneComponent)
-       }
-
-      openModalTwo() {
-           this.modalService.openModal(this.modalTwoConfig, ModalBodyTwoComponent)
-       }
-
-      openModalThree() {
-           this.modalService.openModal(this.modalTwoConfig, "Some text on the third modal")
-       }
-   }
-   ```
-   
-   Then, you'll have to declare your modal bodies components in the NgModule like this :
-      ```typescript
-      import { ModalModule } from "ngx-heyl-modal";
-      @NgModule({
-         imports: [ 
-            ...,
-            ModalModule
-         ],
-         declarations: [
-            ModalBodyOneComponent,
-            ModalBodyTwoComponent
-         ],
-         entryComponents: [
-            ModalBodyOneComponent,
-            ModalBodyTwoComponent
-         ]
-      })
-      ```
-      
+         
 4. Styling modal component
 
    If you want to change background colors and text-color, you can do it using scss !
