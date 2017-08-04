@@ -7,7 +7,7 @@ This package is designed to define the modal only on the `app.component` templat
 
 Inputs available :
 
-| Inputs | Default value | Description |
+| @Input() | Default value | Description |
 | -------| --------------| ----------- |
 | `size` | `"70%"` | Width of the modal |
 | `fade` | `ModalFade.BOTTOM` | Position from where the modal fade : `"top"` / `"bottom"` / `"left"` / `"right"` |
@@ -15,7 +15,7 @@ Inputs available :
 
 ModalComponent's functions available :
 
-| Inputs | Description |
+| functions | Description |
 | -------| --------------|
 | `show([callback])` | Show the modal, and call the callback if not undefined |
 | `hide([callback])` | Hide the modal, and call the callback if not undefined |
