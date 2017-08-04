@@ -44,10 +44,14 @@ ModalComponent's functions available :
 3. Use `<modal>` component :
 
    Declare a modal in an html file
-   ```html
+   ```html  
    <modal #modal fade="top" size="50%">
-      <div class="modal-header">This is my header</div>
-      <div class="modal-body">Here you can type some long text and html</div>
+      <div class="modal-header">
+         This is my header
+      </div>
+      <div class="modal-body">
+         Here you can type some long text and html
+      </div>
       <div class="modal-footer">
          <button (click)="modal.hide()">Close</button>
       </div>
@@ -59,7 +63,7 @@ ModalComponent's functions available :
    If you want to change background colors and text-color, you can do it using scss !
    
    ```scss
-   @import "../[ .... ]../node_modules/ngx-heyl-modal/lib/modal.mixin";
+   @import "../[ .... ]../node_modules/ngx-heyl-modal/lib/css/modal.mixin";
    // modalColor(header_background, body_background, footer_background, text_color);
    @include modalColor(#ed5400, #2b3135, #005590, #fff);
    ```
