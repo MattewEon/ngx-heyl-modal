@@ -1,7 +1,0 @@
-# IntelliJ
-.idea
-*.iml
-
-#Dev files
-node_modules
-npm-debug.log.*

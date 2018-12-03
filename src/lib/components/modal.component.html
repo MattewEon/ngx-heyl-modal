@@ -1,0 +1,7 @@
+<div class="modal-dialog" [className]="fade + ' modal-dialog'"
+     [ngStyle]="{'width' : size}">
+  <span (click)="hide()" *ngIf="closeButton" class="close-button">&times;</span>
+  <ng-content select=".modal-header"></ng-content>
+  <ng-content select=".modal-body"></ng-content>
+  <ng-content select=".modal-footer"></ng-content>
+</div>

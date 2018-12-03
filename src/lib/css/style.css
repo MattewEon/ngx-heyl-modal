@@ -1,0 +1,68 @@
+modal {
+  transition: all .5s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 1rem; }
+  modal > div.modal-dialog {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-height: 95%;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+    border: 1px solid #737373;
+    border-radius: 0.3em;
+    transition: all .5s ease;
+    background: #fff; }
+    modal > div.modal-dialog > span.close-button {
+      transition: all .5s ease;
+      position: absolute;
+      top: 4px;
+      right: 16px;
+      font-size: 2em;
+      opacity: .3;
+      cursor: pointer; }
+      modal > div.modal-dialog > span.close-button:hover {
+        transform: rotateZ(90deg); }
+    modal > div.modal-dialog > div.modal-header {
+      padding: 0.7em 2.2em 0.5em 1em;
+      border-bottom: 1px solid #737373;
+      font-size: 1.3em; }
+    modal > div.modal-dialog > div.modal-body {
+      overflow: auto;
+      padding: 1em; }
+    modal > div.modal-dialog > div.modal-footer {
+      padding: 0.5em 1em;
+      border-top: 1px solid #737373;
+      text-align: right; }
+      modal > div.modal-dialog > div.modal-footer > div.modal-button {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0.2em 1em;
+        margin: 0.5em 1em; }
+  modal:not(.in) {
+    opacity: 0;
+    pointer-events: none; }
+    modal:not(.in) > div.modal-dialog {
+      transform: translate3d(-50%, -150%, 0); }
+      modal:not(.in) > div.modal-dialog.right {
+        transform: translate3d(50%, -50%, 0); }
+      modal:not(.in) > div.modal-dialog.bottom {
+        transform: translate3d(-50%, 50%, 0); }
+      modal:not(.in) > div.modal-dialog.left {
+        transform: translate3d(-150%, -50%, 0); }
+  modal.in {
+    opacity: 1; }
+    modal.in > div.modal-dialog {
+      transform: translate3d(-50%, -50%, 0); }
+
+/*# sourceMappingURL=style.css.map */

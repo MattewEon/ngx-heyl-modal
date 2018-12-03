@@ -1,0 +1,22 @@
+@mixin modalColor($header_background, $body_background, $footer_background, $text_color) {
+  :root modal > div.modal-dialog {
+    background: $body_background !important;
+
+    > div {
+      &.modal-header {
+        background: $header_background !important;
+        color: $text-color !important;
+      }
+
+      &.modal-footer {
+        background: darken($footer_background, 10%) !important;
+
+        > button {
+          background: darken($header_background, 10%) !important;
+          color: $text-color !important;
+          text-shadow: 1px 1px $footer_background !important;
+        }
+      }
+    }
+  }
+}

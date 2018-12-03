@@ -1,32 +1,9 @@
 {
   "name": "ngx-heyl-modal",
-  "version": "2.0.2",
   "description": "A simple Angular2+ modal window",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "GALLO Mathieu",
-  "license": "ISC",
+  "version": "2.1.1",
   "peerDependencies": {
-    "@angular/common": "^2.3.1 || >=4.0.0",
-    "@angular/core": "^2.3.1 || >=4.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MattewEon/ngx-heyl-modal.git"
-  },
-  "keywords": [
-    "angular",
-    "angular 2",
-    "ng2",
-    "angular 4",
-    "ng4",
-    "ngx",
-    "modal"
-  ],
-  "bugs": {
-    "url": "https://github.com/MattewEon/ngx-heyl-modal/issues"
-  },
-  "homepage": "https://github.com/MattewEon/ngx-heyl-modal#readme"
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
 }

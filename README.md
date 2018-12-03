@@ -1,11 +1,35 @@
 # ngx-heyl-modal
 
-This package allows you to use a modal window in AngularX (2+) projects.
-This package is designed to define the modal only on the `app.component` template and use a component to define all bodies you'll need.
-#### Please don't hesitate to ask for new features or report a bug on Github! Thanks
-## Small wiki
+This package allows you to use a modal window in AngularX (2+) projects.  
 
-Inputs available :
+#### Please don't hesitate to ask for new features or report a bug on Github! Thanks
+
+# Summary
+
+- [1. Features](#1)
+- [2. Wiki](#2)
+  - [2.1 Inputs & Functions](#2.1)
+- [3. How to use](#3)
+  
+
+# Updates
+
+- 10 Jun. 2018
+  - Re-created library with Angular 6
+  - Fix closeButton not working
+  - Review CSS
+  - Removed ModalConfig class
+
+# 1. <a name="1"></a>Features
+
+- Modal component
+  - Easily usable
+  - Minimal CSS to be easily customizable
+  - Fade animation from top, bottom, left and right
+
+# 2. <a name="2"></a>Wiki
+
+## 2.1 <a name="2.1"></a>Inputs & Functions
 
 | @Input() | Default value | Description |
 | -------| --------------| ----------- |
@@ -21,15 +45,15 @@ ModalComponent's functions available :
 | `hide([callback])` | Hide the modal, and call the callback if not undefined |
 
 
-## Installation
+# 3. <a name="3"></a>How to use
 
 1. Install npm module : 
 
-   `npm install ngx-heyl-module`
+   `npm i ngx-heyl-module`
 
 2. Import the module :
 
-   Open your `app.module.ts` file and import the module like this :
+   Open your `app.module.ts` file and import the module :
    
    ```typescript
    import { ModalModule } from "ngx-heyl-modal";
@@ -56,14 +80,4 @@ ModalComponent's functions available :
          <button (click)="modal.hide()">Close</button>
       </div>
    </modal>
-   ```
-         
-4. Styling modal component
-
-   If you want to change background colors and text-color, you can do it using scss !
-   
-   ```scss
-   @import "../[ .... ]../node_modules/ngx-heyl-modal/lib/css/modal.mixin";
-   // modalColor(header_background, body_background, footer_background, text_color);
-   @include modalColor(#ed5400, #2b3135, #005590, #fff);
    ```
